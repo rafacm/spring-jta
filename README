@@ -1,3 +1,7 @@
 Spring JTA Sample extracted from http://git.springsource.org/spring-samples
+Updated with some changes:
 
+ - created base class to cache the Spring context for integration tests
+ - added embedded ActiveMQ broker for integration tests
+ 
 You need to configure a MySQL database. See the file service.properties.
