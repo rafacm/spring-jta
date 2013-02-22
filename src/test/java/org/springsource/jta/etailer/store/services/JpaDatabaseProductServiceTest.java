@@ -29,10 +29,8 @@ import static org.junit.Assert.*;
 /**
  * todo to use this with {@link BitronixJtaConfiguration} instead, replace the mention of {@link AtomikosJtaConfiguration} below.
  */
-
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(loader = AnnotationConfigContextLoader.class, classes = {AtomikosJtaConfiguration.class, StoreConfiguration.class})
-public class JpaDatabaseProductServiceTest {
+public class JpaDatabaseProductServiceTest extends BaseIntegrationTest {
 
 	private String firstName = "John";
 	private String lastName = "Doe";

@@ -37,8 +37,7 @@ import static org.junit.Assert.assertTrue;
  * @author Josh Long
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(loader = AnnotationConfigContextLoader.class, classes = {/* BitronixJtaConfiguration.class  AtomikosJtaConfiguration.class */AtomikosJtaConfiguration.class , StoreConfiguration.class})
-public class JpaDatabaseCustomerOrderServiceTest {
+public class JpaDatabaseCustomerOrderServiceTest extends BaseIntegrationTest {
 
 	private Log log = LogFactory.getLog(getClass().getName());
 
@@ -47,12 +46,6 @@ public class JpaDatabaseCustomerOrderServiceTest {
 	@Inject private CustomerService customerService;
 
 	@Inject private ProductService productService;
-
-	@Before
-	public void before() throws Throwable {
-		log.info("ensure that MySQL and ActiveMQ are running! " +
-				 "For specifics, see the README.txt in this project");
-	}
 
 	@Test
 	public void testAddingProductsToCart() throws Exception {
