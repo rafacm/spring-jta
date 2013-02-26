@@ -3,12 +3,11 @@ package org.springsource.jta.etailer.store.config;
 import bitronix.tm.TransactionManagerServices;
 import bitronix.tm.resource.jdbc.PoolingDataSource;
 import bitronix.tm.resource.jms.PoolingConnectionFactory;
-import com.mysql.jdbc.jdbc2.optional.MysqlXADataSource;
 import org.apache.activemq.ActiveMQXAConnectionFactory;
+import org.h2.jdbcx.JdbcDataSource;
 import org.hibernate.transaction.BTMTransactionManagerLookup;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 
 import javax.inject.Inject;
@@ -67,7 +66,7 @@ public class BitronixJtaConfiguration   {
 	public DataSource dataSource() {
 
 		PoolingDataSource poolingDataSource = new PoolingDataSource();
-		poolingDataSource.setClassName(MysqlXADataSource.class.getName());
+		poolingDataSource.setClassName(this.environment.getProperty("dataSource.driverClassName"));
 		poolingDataSource.setUniqueName("xads");
 
         /*
@@ -81,10 +80,9 @@ public class BitronixJtaConfiguration   {
         poolingDataSource.setAllowLocalTransactions(true);
 
 		Properties props = new Properties();
-		props.put("pinGlobalTxToPhysicalConnection","true");
 		props.put("password", this.environment.getProperty("dataSource.password"));
 		props.setProperty("user", this.environment.getProperty("dataSource.user"));
-		props.setProperty("url", this.environment.getProperty("dataSource.url"));
+		props.setProperty("URL", this.environment.getProperty("dataSource.url"));
 
 		poolingDataSource.setDriverProperties(props);
 		poolingDataSource.setMaxPoolSize(this.maxPoolSize);
