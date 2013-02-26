@@ -56,6 +56,7 @@ public class StoreConfiguration {
 		HibernateJpaVendorAdapter hibernateJpaVendorAdapter = new HibernateJpaVendorAdapter();
 		hibernateJpaVendorAdapter.setDatabase(Database.MYSQL);
 		hibernateJpaVendorAdapter.setShowSql(true);
+        hibernateJpaVendorAdapter.setGenerateDdl(true);
 		return hibernateJpaVendorAdapter;
 	}
 

@@ -70,6 +70,16 @@ public class BitronixJtaConfiguration   {
 		poolingDataSource.setClassName(MysqlXADataSource.class.getName());
 		poolingDataSource.setUniqueName("xads");
 
+        /*
+         * We need this setting if we want JPA/Hibernate to be able to
+         * autogenerate the database schema.
+         *
+         * See the autogenerate configuration on the EntityManager configuration:
+         *
+         *    HibernateJpaVendorAdapter.setGenerateDdl(true)
+         */
+        poolingDataSource.setAllowLocalTransactions(true);
+
 		Properties props = new Properties();
 		props.put("pinGlobalTxToPhysicalConnection","true");
 		props.put("password", this.environment.getProperty("dataSource.password"));
