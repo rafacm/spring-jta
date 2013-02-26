@@ -40,16 +40,9 @@ import java.util.Properties;
 @Configuration
 @PropertySource("services.properties")
 @ComponentScan(value = "org.springsource.jta.etailer.store.services")
-public class StoreConfiguration {
+public class PersistenceConfiguration {
 
     @Inject private BitronixJtaConfiguration jtaConfiguration ;
-
-	@Bean
-	public JmsTemplate jmsTemplate() throws Throwable{
-		JmsTemplate jmsTemplate = new JmsTemplate(jtaConfiguration.connectionFactory());
-		jmsTemplate.setSessionTransacted(true);
-		return jmsTemplate;
-	}
 
 	@Bean
 	public HibernateJpaVendorAdapter hibernateJpaVendorAdapter() {
