@@ -42,9 +42,7 @@ import java.util.Properties;
 @ComponentScan(value = "org.springsource.jta.etailer.store.services")
 public class StoreConfiguration {
 
-// todo to use this, you need to uncomment '@Configuration' on the BitronixJtaConfiguration class.
-//    @Inject private BitronixJtaConfiguration jtaConfiguration ;
-    @Inject private AtomikosJtaConfiguration jtaConfiguration ;
+    @Inject private BitronixJtaConfiguration jtaConfiguration ;
 
 	@Bean
 	public JmsTemplate jmsTemplate() throws Throwable{

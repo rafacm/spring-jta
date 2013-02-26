@@ -14,15 +14,10 @@ package org.springsource.jta.etailer.store.services;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.support.AnnotationConfigContextLoader;
-import org.springsource.jta.etailer.store.config.AtomikosJtaConfiguration;
-import org.springsource.jta.etailer.store.config.BitronixJtaConfiguration;
-import org.springsource.jta.etailer.store.config.StoreConfiguration;
 import org.springsource.jta.etailer.store.domain.Customer;
 import org.springsource.jta.etailer.store.domain.LineItem;
 import org.springsource.jta.etailer.store.domain.Product;

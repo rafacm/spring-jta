@@ -15,20 +15,12 @@ package org.springsource.jta.etailer.store.services;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.support.AnnotationConfigContextLoader;
-import org.springsource.jta.etailer.store.config.AtomikosJtaConfiguration;
-import org.springsource.jta.etailer.store.config.BitronixJtaConfiguration;
-import org.springsource.jta.etailer.store.config.StoreConfiguration;
 import org.springsource.jta.etailer.store.domain.Customer;
 
 import static org.junit.Assert.*;
 
 
-/**
- * todo to use this with {@link BitronixJtaConfiguration} instead, replace the mention of {@link AtomikosJtaConfiguration} below.
- */
 @RunWith(SpringJUnit4ClassRunner.class)
 public class JpaDatabaseProductServiceTest extends BaseIntegrationTest {
 

@@ -18,10 +18,8 @@ import javax.transaction.TransactionManager;
 import javax.transaction.UserTransaction;
 import java.util.Properties;
 
-// todo to use this one instead, uncomment this and then comment out the annotation on AtomikosJtaConfiguration
-//@Configuration
+@Configuration
 public class BitronixJtaConfiguration   {
-
 
     @Inject
     private Environment environment ;
@@ -30,16 +28,20 @@ public class BitronixJtaConfiguration   {
 
 	@Bean(destroyMethod = "close")
 	public ConnectionFactory connectionFactory() {
-		PoolingConnectionFactory poolingConnectionFactory = new PoolingConnectionFactory();
+        PoolingConnectionFactory poolingConnectionFactory = new PoolingConnectionFactory();
 		poolingConnectionFactory.setClassName(ActiveMQXAConnectionFactory.class.getName());
 		poolingConnectionFactory.setMaxPoolSize(this.maxPoolSize);
 		poolingConnectionFactory.setUniqueName("xamq");
+		poolingConnectionFactory.getDriverProperties().setProperty("brokerURL", this.environment.getProperty("jms.broker.url"));
 
-		Properties properties = new Properties();
-		properties.setProperty("brokerURL", this.environment.getProperty("jms.broker.url"));
-		poolingConnectionFactory.setDriverProperties(properties);
-		poolingConnectionFactory.init();
-		return poolingConnectionFactory;
+        /*
+         * The ActiveMQXAConnectionFactory will be lazily initialized when the first connection is created.
+         * We do this here to avoid incurring the risk that the ActiveMQBrokerConfiguration class is executed *after*
+         * this one and therefore the ActiveMQ would not be available and "listening" for connections as we expect here.
+         */
+        //poolingConnectionFactory.init();
+
+        return poolingConnectionFactory;
 	}
 
 	@Bean
