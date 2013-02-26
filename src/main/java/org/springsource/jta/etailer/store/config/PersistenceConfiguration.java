@@ -13,7 +13,7 @@
 package org.springsource.jta.etailer.store.config;
 
 import org.hibernate.cfg.ImprovedNamingStrategy;
-import org.hibernate.dialect.MySQL5Dialect;
+import org.hibernate.dialect.H2Dialect;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -47,7 +47,7 @@ public class PersistenceConfiguration {
 	@Bean
 	public HibernateJpaVendorAdapter hibernateJpaVendorAdapter() {
 		HibernateJpaVendorAdapter hibernateJpaVendorAdapter = new HibernateJpaVendorAdapter();
-		hibernateJpaVendorAdapter.setDatabase(Database.MYSQL);
+		hibernateJpaVendorAdapter.setDatabase(Database.H2);
 		hibernateJpaVendorAdapter.setShowSql(true);
         hibernateJpaVendorAdapter.setGenerateDdl(true);
 		return hibernateJpaVendorAdapter;
@@ -61,7 +61,7 @@ public class PersistenceConfiguration {
 		entityManager.setJpaVendorAdapter(hibernateJpaVendorAdapter());
 
 		Properties properties = new Properties();
-		properties.setProperty("hibernate.dialect", MySQL5Dialect.class.getName());
+		properties.setProperty("hibernate.dialect", H2Dialect.class.getName());
 		properties.setProperty("hibernate.ejb.naming_strategy", ImprovedNamingStrategy.class.getName());
 		jtaConfiguration.tailorProperties(properties);
 		entityManager.setJpaProperties(properties);
