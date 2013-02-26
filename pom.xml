@@ -8,8 +8,22 @@
     <groupId>org.springsource.examples</groupId>
     <artifactId>spring-jta</artifactId>
     <version>1.0.0-SNAPSHOT</version>
-    <build>
 
+    <properties>
+        <atomikos.version>3.6.4</atomikos.version>
+        <bitronix.version>2.1.3</bitronix.version>
+        <activemq.version>5.4.2</activemq.version>
+        <com.rabbitmq.version>2.1.0</com.rabbitmq.version>
+        <org.aspectj-version>1.6.9</org.aspectj-version>
+        <org.slf4j-version>1.5.10</org.slf4j-version>
+        <org.springframework.security-version>3.0.3.RELEASE</org.springframework.security-version>
+        <spring.amqp.version>1.0.0.M2</spring.amqp.version>
+        <spring.ws.version>1.5.9</spring.ws.version>
+        <spring-framework.version>3.2.1.RELEASE</spring-framework.version>
+        <spring-integration.version>2.0.5.RELEASE</spring-integration.version>
+    </properties>
+
+    <build>
         <plugins>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -81,17 +95,17 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context-support</artifactId>
-            <version>${spring-framework-version}</version>
+            <version>${spring-framework.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-beans</artifactId>
-            <version>${spring-framework-version}</version>
+            <version>${spring-framework.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
-            <version>${spring-framework-version}</version>
+            <version>${spring-framework.version}</version>
             <exclusions>
                 <exclusion>
                     <artifactId>commons-logging</artifactId>
@@ -102,27 +116,27 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-jdbc</artifactId>
-            <version>${spring-framework-version}</version>
+            <version>${spring-framework.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-orm</artifactId>
-            <version>${spring-framework-version}</version>
+            <version>${spring-framework.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-oxm</artifactId>
-            <version>${spring-framework-version}</version>
+            <version>${spring-framework.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-jms</artifactId>
-            <version>${spring-framework-version}</version>
+            <version>${spring-framework.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
-            <version>${spring-framework-version}</version>
+            <version>${spring-framework.version}</version>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -262,18 +276,6 @@
 			<snapshots>
 				<enabled>false</enabled>
 			</snapshots>
-		</repository></repositories>
-    <properties>
-        <atomikos.version>3.6.4</atomikos.version>
-        <bitronix.version>2.1.3</bitronix.version>
-        <activemq.version>5.4.2</activemq.version>
-        <com.rabbitmq.version>2.1.0</com.rabbitmq.version>
-        <org.aspectj-version>1.6.9</org.aspectj-version>
-        <org.slf4j-version>1.5.10</org.slf4j-version>
-        <org.springframework.security-version>3.0.3.RELEASE</org.springframework.security-version>
-        <spring.amqp.version>1.0.0.M2</spring.amqp.version>
-        <spring.ws.version>1.5.9</spring.ws.version>
-        <spring-framework-version>3.1.0.M2</spring-framework-version>
-        <spring-integration.version>2.0.5.RELEASE</spring-integration.version>
-    </properties>
+		</repository>
+    </repositories>
 </project>
