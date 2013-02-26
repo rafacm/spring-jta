@@ -3,5 +3,9 @@ Updated with some changes:
 
  - created base class to cache the Spring context for integration tests
  - added embedded ActiveMQ broker for integration tests
+ - splitted configuration of JMS and JPA into separate configuration classes
+ - configured Hibernate databse schema autogeneration
+ - fixed some small issues with the existing Bitronix JTA configuration
  
-You need to configure a MySQL database. See the file service.properties.
+You need to configure a MySQL database. See the file service.properties in the 'resources' directory.
+NOTE: The 'h2' Git branch uses an in-memory H2 database so you do not need to setup MySQL.
